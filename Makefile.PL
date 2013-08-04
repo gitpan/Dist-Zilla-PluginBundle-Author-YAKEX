@@ -6,6 +6,8 @@ use 5.006;
 
 use ExtUtils::MakeMaker 6.30;
 
+use File::ShareDir::Install;
+install_share module => "Dist::Zilla::MintingProfile::Author::YAKEX", "profiles";
 
 
 my %WriteMakefileArgs = (
@@ -13,7 +15,8 @@ my %WriteMakefileArgs = (
   "AUTHOR" => "Yasutaka ATARASHI <yakex\@cpan.org>",
   "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
-    "ExtUtils::MakeMaker" => "6.30"
+    "ExtUtils::MakeMaker" => "6.30",
+    "File::ShareDir::Install" => "0.03"
   },
   "DISTNAME" => "Dist-Zilla-PluginBundle-Author-YAKEX",
   "EXE_FILES" => [],
@@ -39,7 +42,7 @@ my %WriteMakefileArgs = (
     "Moose" => 0
   },
   "TEST_REQUIRES" => {},
-  "VERSION" => "v0.0.1",
+  "VERSION" => "v0.0.2",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -77,5 +80,10 @@ delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
 
 WriteMakefile(%WriteMakefileArgs);
 
+{
+package
+MY;
+use File::ShareDir::Install qw(postamble);
+}
 
 

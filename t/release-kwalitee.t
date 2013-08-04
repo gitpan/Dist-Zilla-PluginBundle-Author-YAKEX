@@ -14,7 +14,7 @@ use warnings;
 use Test::More;   # needed to provide plan.
 eval {
   require Test::Kwalitee::Extra;
-  Test::Kwalitee::Extra->import( qw( !has_example ) );
+  Test::Kwalitee::Extra->import( qw( !has_example !has_test_pod_coverage ) );
 };
 
 plan skip_all => "Test::Kwalitee::Extra required for testing kwalitee: $@" if $@;
