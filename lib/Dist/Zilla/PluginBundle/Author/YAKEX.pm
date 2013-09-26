@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 # ABSTRACT: Dist::Zilla configuration the way YAKEX does it
-our $VERSION = 'v0.1.0'; # VERSION
+our $VERSION = 'v0.1.1'; # VERSION
 
 use Moose;
 with 'Dist::Zilla::Role::PluginBundle::Easy';
@@ -53,7 +53,7 @@ Dist::Zilla::PluginBundle::Author::YAKEX - Dist::Zilla configuration the way YAK
 
 =head1 VERSION
 
-version v0.1.0
+version v0.1.1
 
 =head1 SYNOPSIS
 

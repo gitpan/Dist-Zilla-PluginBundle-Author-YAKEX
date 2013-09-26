@@ -33,8 +33,8 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::OurPkgVersion" => 0,
     "Dist::Zilla::Plugin::PodWeaver" => 0,
     "Dist::Zilla::Plugin::ReadmeAnyFromPod" => 0,
-    "Dist::Zilla::Plugin::Test::Compile" => "2.027",
-    "Dist::Zilla::Plugin::Test::Kwalitee::Extra" => "v0.1.3",
+    "Dist::Zilla::Plugin::Test::Compile" => "2.033",
+    "Dist::Zilla::Plugin::Test::Kwalitee::Extra" => "v0.2.0",
     "Dist::Zilla::Plugin::Test::Perl::Critic" => 0,
     "Dist::Zilla::Plugin::Twitter" => 0,
     "Dist::Zilla::PluginBundle::Git" => 0,
@@ -42,11 +42,12 @@ my %WriteMakefileArgs = (
     "Moose" => 0
   },
   "TEST_REQUIRES" => {
+    "File::Spec" => 0,
     "IO::Handle" => 0,
     "IPC::Open3" => 0,
     "Test::More" => 0
   },
-  "VERSION" => "v0.1.0",
+  "VERSION" => "v0.1.1",
   "test" => {
     "TESTS" => "t/*.t"
   }
