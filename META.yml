@@ -11,7 +11,7 @@ configure_requires:
   ExtUtils::MakeMaker: 6.30
   File::ShareDir::Install: 0.03
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132140'
+generated_by: 'Dist::Zilla version 5.006, CPAN::Meta::Converter version 2.132140'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -38,8 +38,10 @@ requires:
   Dist::Zilla::PluginBundle::Git: 0
   Dist::Zilla::Role::PluginBundle::PluginRemover: 0
   Moose: 0
+  Pod::Elemental::Transformer::List: 0
+  Pod::Weaver::Section::AllowOverride: 0
   perl: 5.006
 resources:
   homepage: https://github.com/yak1ex/Dist-Zilla-PluginBundle-Author-YAKEX
   repository: https://github.com/yak1ex/Dist-Zilla-PluginBundle-Author-YAKEX.git
-version: v0.1.1
+version: v0.1.2

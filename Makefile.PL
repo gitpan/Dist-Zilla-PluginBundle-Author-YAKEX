@@ -39,7 +39,9 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::Twitter" => 0,
     "Dist::Zilla::PluginBundle::Git" => 0,
     "Dist::Zilla::Role::PluginBundle::PluginRemover" => 0,
-    "Moose" => 0
+    "Moose" => 0,
+    "Pod::Elemental::Transformer::List" => 0,
+    "Pod::Weaver::Section::AllowOverride" => 0
   },
   "TEST_REQUIRES" => {
     "File::Spec" => 0,
@@ -47,37 +49,44 @@ my %WriteMakefileArgs = (
     "IPC::Open3" => 0,
     "Test::More" => 0
   },
-  "VERSION" => "v0.1.1",
+  "VERSION" => "v0.1.2",
   "test" => {
     "TESTS" => "t/*.t"
   }
 );
 
 
-unless ( eval { ExtUtils::MakeMaker->VERSION(6.63_03) } ) {
-  my $tr = delete $WriteMakefileArgs{TEST_REQUIRES};
-  my $br = $WriteMakefileArgs{BUILD_REQUIRES};
-  for my $mod ( keys %$tr ) {
-    if ( exists $br->{$mod} ) {
-      $br->{$mod} = $tr->{$mod} if $tr->{$mod} > $br->{$mod};
-    }
-    else {
-      $br->{$mod} = $tr->{$mod};
-    }
-  }
-}
+my %FallbackPrereqs = (
+  "Dist::Zilla" => 0,
+  "Dist::Zilla::Plugin::Bootstrap::lib" => 0,
+  "Dist::Zilla::Plugin::CheckVersionIncrement" => 0,
+  "Dist::Zilla::Plugin::GithubMeta" => 0,
+  "Dist::Zilla::Plugin::MetaJSON" => 0,
+  "Dist::Zilla::Plugin::MinimumPerl" => 0,
+  "Dist::Zilla::Plugin::NextRelease" => 0,
+  "Dist::Zilla::Plugin::OurPkgVersion" => 0,
+  "Dist::Zilla::Plugin::PodWeaver" => 0,
+  "Dist::Zilla::Plugin::ReadmeAnyFromPod" => 0,
+  "Dist::Zilla::Plugin::Test::Compile" => "2.033",
+  "Dist::Zilla::Plugin::Test::Kwalitee::Extra" => "v0.2.0",
+  "Dist::Zilla::Plugin::Test::Perl::Critic" => 0,
+  "Dist::Zilla::Plugin::Twitter" => 0,
+  "Dist::Zilla::PluginBundle::Git" => 0,
+  "Dist::Zilla::Role::PluginBundle::PluginRemover" => 0,
+  "File::Spec" => 0,
+  "IO::Handle" => 0,
+  "IPC::Open3" => 0,
+  "Moose" => 0,
+  "Pod::Elemental::Transformer::List" => 0,
+  "Pod::Weaver::Section::AllowOverride" => 0,
+  "Test::More" => 0
+);
 
-unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
-  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
-  my $pp = $WriteMakefileArgs{PREREQ_PM};
-  for my $mod ( keys %$br ) {
-    if ( exists $pp->{$mod} ) {
-      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
-    }
-    else {
-      $pp->{$mod} = $br->{$mod};
-    }
-  }
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.63_03) } ) {
+  delete $WriteMakefileArgs{TEST_REQUIRES};
+  delete $WriteMakefileArgs{BUILD_REQUIRES};
+  $WriteMakefileArgs{PREREQ_PM} = \%FallbackPrereqs;
 }
 
 delete $WriteMakefileArgs{CONFIGURE_REQUIRES}

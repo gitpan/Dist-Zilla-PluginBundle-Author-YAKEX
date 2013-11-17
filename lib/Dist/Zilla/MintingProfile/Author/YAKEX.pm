@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 # ABSTRACT: Dist::Zilla minting profile the way YAKEX does it
-our $VERSION = 'v0.1.1'; # VERSION
+our $VERSION = 'v0.1.2'; # VERSION
 
 use Moose;
 with 'Dist::Zilla::Role::MintingProfile::ShareDir';
@@ -24,7 +24,7 @@ Dist::Zilla::MintingProfile::Author::YAKEX - Dist::Zilla minting profile the way
 
 =head1 VERSION
 
-version v0.1.1
+version v0.1.2
 
 =head1 SYNOPSIS
 
