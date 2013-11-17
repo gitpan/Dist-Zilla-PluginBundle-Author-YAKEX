@@ -39,6 +39,7 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::Twitter" => 0,
     "Dist::Zilla::PluginBundle::Git" => 0,
     "Dist::Zilla::Role::PluginBundle::PluginRemover" => 0,
+    "Module::ExtractUse" => "0.32",
     "Moose" => 0,
     "Pod::Elemental::Transformer::List" => 0,
     "Pod::Weaver::Section::AllowOverride" => 0
@@ -49,7 +50,7 @@ my %WriteMakefileArgs = (
     "IPC::Open3" => 0,
     "Test::More" => 0
   },
-  "VERSION" => "v0.1.2",
+  "VERSION" => "v0.1.3",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -76,6 +77,7 @@ my %FallbackPrereqs = (
   "File::Spec" => 0,
   "IO::Handle" => 0,
   "IPC::Open3" => 0,
+  "Module::ExtractUse" => "0.32",
   "Moose" => 0,
   "Pod::Elemental::Transformer::List" => 0,
   "Pod::Weaver::Section::AllowOverride" => 0,
