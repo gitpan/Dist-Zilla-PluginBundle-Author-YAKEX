@@ -4,7 +4,7 @@
       "Yasutaka ATARASHI <yakex@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 5.006, CPAN::Meta::Converter version 2.132140",
+   "generated_by" : "Dist::Zilla version 5.015, CPAN::Meta::Converter version 2.132510",
    "license" : [
       "perl_5"
    ],
@@ -74,6 +74,6 @@
          "web" : "https://github.com/yak1ex/Dist-Zilla-PluginBundle-Author-YAKEX"
       }
    },
-   "version" : "v0.1.4"
+   "version" : "v0.1.5"
 }
 

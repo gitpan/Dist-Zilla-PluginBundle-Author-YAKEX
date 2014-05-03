@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 # ABSTRACT: Dist::Zilla configuration the way YAKEX does it
-our $VERSION = 'v0.1.4'; # VERSION
+our $VERSION = 'v0.1.5'; # VERSION
 
 use Moose;
 with 'Dist::Zilla::Role::PluginBundle::Easy';
@@ -33,7 +33,7 @@ sub configure
 			GithubMeta MetaJSON PodWeaver OurPkgVersion CheckVersionIncrement MinimumPerl
 			PodSyntaxTests PodCoverageTests Test::Perl::Critic Test::Compile
 		],
-		[ 'Test::Kwalitee::Extra' => { arg => ['!has_example', 'build_prereq_matches_use'] } ],
+		[ 'Test::Kwalitee::Extra' => { arg => ['!has_example'] } ],
 		[ Twitter => { url_shortener => 'none', hash_tags => '#perl' } ],
 	);
 }
@@ -53,7 +53,7 @@ Dist::Zilla::PluginBundle::Author::YAKEX - Dist::Zilla configuration the way YAK
 
 =head1 VERSION
 
-version v0.1.4
+version v0.1.5
 
 =head1 SYNOPSIS
 
@@ -93,6 +93,7 @@ This is a L<Dist::Zilla> PluginBundle used by YAKEX's distribution. It is equiva
   [Test::Compile]
   [Test::Kwalitee::Extra]
   arg = !has_example
+  arg = !build_prereq_matches_use
   
   [Twitter]
   url_shortener = none
